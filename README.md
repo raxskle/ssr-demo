@@ -28,12 +28,15 @@ node 端拿到用户请求，根据路径找到对应页面组件，并且根据
 避免状态单例，每个请求都必须是全新的独立的函数调用，在main.ts中createApp需要写成函数
 
 ## TODO
-[x] 引入pinia
-[x] 引入vue-router
-[ ] koa处理请求
-[ ] 处理打包生产环境
-[ ] 数据预取
+- [x] 引入pinia
+- [x] 引入vue-router
+- [ ] koa处理请求
+- [x] 处理打包生产环境
+- [ ] 预加载
 
 ## 页面路由
 
 由vue-router处理，koa只需要进入页面router。客户端使用WebHistory模式，服务端需要使用MemoryHistory模式，并且手动加入初始路径，确保客户端和用户端解析的路由一致。
+
+## 生产环境构建
+

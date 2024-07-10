@@ -1,6 +1,12 @@
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125">
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+    >
     <div class="wrapper">
       <HelloWorld :msg="title" />
     </div>
@@ -11,11 +17,15 @@
   </main>
 
   <nav>
-    <RouterLink to="/">Go to Index</RouterLink>
-    <RouterLink to="/user">Go to User</RouterLink>
+    <RouterLink to="/">
+      Go to Index
+    </RouterLink>
+    <RouterLink to="/user">
+      Go to User
+    </RouterLink>
   </nav>
 
-  <RouterView></RouterView>
+  <RouterView />
 </template>
 
 <script setup lang="ts">

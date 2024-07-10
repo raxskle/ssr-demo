@@ -1,11 +1,10 @@
 import { renderToString } from "vue/server-renderer";
 import { createApp } from "./main";
-import type { Context } from "koa";
 import { useMainStore } from "./store";
 import type { SyncData } from "../src/sync-data";
 import { createServerRouter } from "./router";
 
-export async function render(ctx: Context, syncData: SyncData) {
+export async function render(ctx, syncData: SyncData) {
   const { app, pinia } = createApp();
 
   // 路由注册

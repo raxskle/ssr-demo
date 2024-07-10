@@ -4,5 +4,7 @@
     "moduleResolution": "Node",
     "module": "ESNext",
     "target": "ESNext",
-  }
+    "outDir": "./server-dist",
+  },
+  "include": ["./src/"]
 }
