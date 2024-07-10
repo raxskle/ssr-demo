@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+debug.log
+website/dist
+dist
+qqsport_kuikly_log
+log
+.tapdinfo.json
+
+!proto/feedcloudcenter/**/*.js
+!proto/feedcloudcenter/**/*.d.ts
+!proto/feedcloudcenter/**/*.ts
+
+.vscode/settings.json
