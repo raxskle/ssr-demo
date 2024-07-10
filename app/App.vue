@@ -5,10 +5,17 @@
       <HelloWorld :msg="title" />
     </div>
   </header>
-  
+
   <main>
     <TheWelcome />
   </main>
+
+  <nav>
+    <RouterLink to="/">Go to Index</RouterLink>
+    <RouterLink to="/user">Go to User</RouterLink>
+  </nav>
+
+  <RouterView></RouterView>
 </template>
 
 <script setup lang="ts">
@@ -24,6 +31,12 @@ const { title } = storeToRefs(mainStore);
 <style scoped>
 header {
   line-height: 1.5;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 .logo {

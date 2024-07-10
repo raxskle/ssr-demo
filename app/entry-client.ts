@@ -1,6 +1,9 @@
 import { createApp } from "./main";
-
+import { createClientRouter } from './router';
 const { app, pinia } = createApp();
+
+const router = createClientRouter();
+app.use(router);
 
 // 客户端激活获取pinia数据
 if (window.__pinia) {
@@ -8,4 +11,6 @@ if (window.__pinia) {
   window.__pinia = undefined;
 }
 
-app.mount("#app");
+router.isReady().then(() => {
+    app.mount('#app', true);
+});

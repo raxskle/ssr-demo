@@ -26,7 +26,11 @@ const createServer = async () => {
 
   const router = new Router();
 
-  router.all("/", async (ctx) => {
+  router.all("/data", async (ctx) => {
+    ctx.body = "data";
+  });
+
+  router.all("/(.*)", async (ctx) => {
     try {
       // 1. 获取index.html
       let template = fs.readFileSync(

@@ -9,5 +9,7 @@ export async function syncFunc(ctx: Context): Promise<SyncData> {
     msg: "Hello world! from server",
   };
 
+  // do something here
+
   return renderData;
 }
