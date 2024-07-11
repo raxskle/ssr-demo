@@ -25,18 +25,30 @@ node 端拿到用户请求，根据路径找到对应页面组件，并且根据
 
 ## 请求污染
 
-避免状态单例，每个请求都必须是全新的独立的函数调用，在main.ts中createApp需要写成函数
+避免状态单例，每个请求都必须是全新的独立的函数调用，在 main.ts 中 createApp 需要写成函数
 
 ## TODO
-- [x] 引入pinia
-- [x] 引入vue-router
-- [ ] koa处理请求
+
+- [x] 引入 pinia
+- [x] 引入 vue-router
+- [ ] koa 处理请求
 - [x] 处理打包生产环境
-- [ ] 预加载
+- [x] 预加载
 
 ## 页面路由
 
-由vue-router处理，koa只需要进入页面router。客户端使用WebHistory模式，服务端需要使用MemoryHistory模式，并且手动加入初始路径，确保客户端和用户端解析的路由一致。
+由 vue-router 处理，koa 只需要进入页面 router。客户端使用 WebHistory 模式，服务端需要使用 MemoryHistory 模式，并且手动加入初始路径，确保客户端和用户端解析的路由一致。
 
 ## 生产环境构建
 
+为了将 SSR 项目可以在生产环境运行，我们需要：
+
+1. 正常构建生成一个 客户端构建包；
+2. 再生成一个 SSR 构建，使其通过 import 直接加载，这样便无需再使用 Vite 的 ssrLoadModule；
+3. 修改 package.json 构建命令
+
+## 开发模式首屏闪屏
+
+由于开发模式和生产构建包对于样式的引入方式不同，生产模式是以vue文件 .vue?vue&type=style&index=0&scoped=b0f1d2fd&lang.css 的文件引入，首屏拿到html先渲染无CSS的网页，引入vue文件时才会引入对应组件的样式重新渲染成最终的样式。
+
+而生产构建的包以link标签引入一个CSS文件，首屏即可渲染出正确的样式。
