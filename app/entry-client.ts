@@ -6,7 +6,7 @@ const router = createClientRouter();
 app.use(router);
 
 // 客户端激活获取pinia数据
-if (window.__pinia) {
+if (window && window.__pinia) {
   pinia.state.value = window.__pinia;
   window.__pinia = undefined;
 }

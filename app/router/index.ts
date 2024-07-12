@@ -26,7 +26,7 @@ const createRouter = (type: RouterHistory): Router =>
           title: "首页",
           keepAlive: true,
         },
-        component: () => import("../pages/index/index.vue"),
+        component: () => import("../pages/index/IndexPage.vue"),
       },
       {
         path: "/user",
@@ -35,7 +35,7 @@ const createRouter = (type: RouterHistory): Router =>
           title: "用户中心",
           keepAlive: true,
         },
-        component: () => import("../pages/user/user.vue"),
+        component: () => import("../pages/user/UserPage.vue"),
       },
     ],
   });

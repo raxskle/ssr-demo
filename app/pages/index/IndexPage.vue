@@ -1,8 +1,9 @@
 <template>
-    <div>user</div>
+  <div>index</div>
 </template>
 
-<script setup lang="ts"> 
+<script setup lang="ts">
+
 </script>
 
 <style scoped></style>

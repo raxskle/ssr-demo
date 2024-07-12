@@ -64,6 +64,16 @@ const handleDevSSR = async (app, router) => {
             ctx.throw(500, e.stack);
         }
     });
+    // 直接返回spa
+    // router.all("/(.*)", async (ctx)=>{
+    //   if(ctx.response.status === 404){
+    //     ctx.type = "text/html; charset=utf-8";
+    //     ctx.body = fs.readFileSync(
+    //       path.resolve(__dirname + "/app/index.html"),
+    //       "utf-8"
+    //     );
+    //   }
+    // })
 };
 const handleProdSSR = async (router) => {
     router.all("/(.*)", async (ctx) => {

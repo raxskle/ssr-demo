@@ -10,6 +10,7 @@
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr app/entry-server.ts",
     "build": "tsc && npm run build:client && npm run build:server",
+    "start": "npm run build && npm run server",
     "preview": "vite preview",
     "eslint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix ",
     "test": "echo \"Error: no test specified\" && exit 1"

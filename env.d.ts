@@ -1,10 +1,9 @@
-declare module '*.vue' {
-    import { ComponentOptions } from 'vue'
-    const componentOptions: ComponentOptions
-    export default componentOptions
+declare module "*.vue" {
+  import { ComponentOptions } from "vue";
+  const componentOptions: ComponentOptions;
+  export default componentOptions;
 }
 
-
 interface Window {
-    __pinia: any
+  __pinia: any;
 }
