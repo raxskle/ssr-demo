@@ -23,8 +23,9 @@ const createServer = async () => {
         await handleProdSSR(router);
     }
     app.use(router.routes()).use(router.allowedMethods());
-    app.listen(9000, () => {
-        console.log("server is listening in 9000");
+    const port = isDevelopment ? 9001 : 9000;
+    app.listen(port, () => {
+        console.log(`server is listening in ${port}`);
     });
 };
 const handleDevSSR = async (app, router) => {

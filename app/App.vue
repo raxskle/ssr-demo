@@ -20,8 +20,6 @@
   </nav>
 
   <RouterView />
-
-  <div class="box" :style="p"></div>
 </template>
 
 <script setup lang="ts">
@@ -29,28 +27,14 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import { storeToRefs } from 'pinia';
 import { useMainStore } from './store';
-import { onMounted, reactive } from 'vue';
 const mainStore = useMainStore();
 const { title } = storeToRefs(mainStore);
 
 console.log("render App");
 
-const p = reactive({
-  height: '10px'
-});
-
-onMounted(() => {
-  p.height = "100px";
-  console.log(p.height)
-})
-
 </script>
 
 <style scoped>
-.box {
-  background-color: red;
-}
-
 header {
   line-height: 1.5;
 }
