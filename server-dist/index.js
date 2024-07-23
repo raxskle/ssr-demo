@@ -2,11 +2,11 @@ import path from "path";
 import Koa from "koa";
 import Router from "@koa/router";
 import { handleRequest } from "./handle-request.js";
-import { handleDevSSR } from "./ssr/dev.js";
-import { handleProdSSR } from "./ssr/prod.js";
+import { handleDevSSR } from "./ssr/dev-ssr.js";
+import { handleProdSSR } from "./ssr/prod-ssr.js";
 import koaStatic from "koa-static";
+import { isDevelopment } from "./utils/index.js";
 export const __dirname = path.resolve();
-export const isDevelopment = process.env.NODE_ENV === "development";
 const createServer = async () => {
     const app = new Koa();
     const router = new Router();

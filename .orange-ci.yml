@@ -1,0 +1,50 @@
+# 安装依赖
+.install: &install
+  - name: 配置npm
+    script: npm config set registry https://mirrors.tencent.com/npm/
+  - name: 安装依赖
+    script: npm ci
+
+# 构建
+.build: &build
+  - name: 构建生产
+    script: npm run build
+
+master:
+  push:
+    - services:
+        - docker
+      docker:
+        image: node:18
+      stages:
+        - *install
+        - *build
+        #登录
+        - name: docker login for image
+          script: docker login -u zhifengdeng -p 12345678 csighub.tencentyun.com
+          retry: 2
+        # 创建镜像tag
+        - name: create docker tag
+          script: echo -n release_$(expr substr $ORANGE_BUILD_USER 1 2)$(expr substr $ORANGE_BUILD_USER $(expr $(expr length $ORANGE_BUILD_USER)) 1)_$(date "+%y%m%d_%H%M")_$ORANGE_BRANCH
+          exports:
+            info: DOCKER_TAG
+          chat: "镜像tag:$DOCKER_TAG"
+        - name: create DOCKER_BUILD_TAG
+          script: echo -n csighub.tencentyun.com/business-ad-dev/ssr-demo:${DOCKER_TAG}
+          exports:
+            info: DOCKER_BUILD_TAG
+        - name: echo DOCKER_BUILD_TAG
+          script: echo -n ${DOCKER_BUILD_TAG}
+          chat: "DOCKER_BUILD_TAG:$DOCKER_BUILD_TAG"
+        # 构建镜像
+        - name: docker build for csighub.tencentyun.com
+          script: docker build --network=host -t ${DOCKER_BUILD_TAG} ./
+          retry: 2
+        # 推送镜像
+        - name: docker push for csighub.tencentyun.com
+          script: docker push ${DOCKER_BUILD_TAG}
+          retry: 2
+
+
+
+

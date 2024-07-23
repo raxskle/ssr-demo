@@ -4,8 +4,8 @@
   "description": "基于Node, koa部署一个处理CGI和SSR的服务",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon --exec node --loader ts-node/esm src/server.ts",
-    "server": "node ./server-dist/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec node --loader ts-node/esm src/index.ts",
+    "server": "node ./server-dist/index.js",
     "dev-vite": "vite",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr app/entry-server.ts",
@@ -25,6 +25,7 @@
     "koa": "^2.15.3",
     "koa-connect": "^2.1.0",
     "koa-send": "^5.0.1",
+    "koa-static": "^5.0.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
