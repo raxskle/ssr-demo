@@ -2,7 +2,7 @@ node_modules
 .DS_Store
 debug.log
 website/dist
-dist
+
 qqsport_kuikly_log
 log
 .tapdinfo.json

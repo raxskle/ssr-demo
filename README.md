@@ -18,6 +18,31 @@
 1. 使用 ts-node 和 nodemon 实现 ts 热更新
 2. 构建 koa 服务
 3. 构建 vue3+vite 的 SSR 服务
+4. 接入pinia和vue-router
+
+## 启动命令
+
+```
+安装依赖
+npm i 
+
+开发启动
+npm run dev
+
+打包构建
+npm run build
+
+生产启动
+npm run start
+```
+
+## TODO
+
+- [x] 引入 pinia
+- [x] 引入 vue-router
+- [x] koa 处理请求
+- [x] 处理打包生产环境
+- [x] 预加载
 
 ## 请求处理
 
@@ -26,14 +51,6 @@ node 端拿到用户请求，根据路径找到对应页面组件，并且根据
 ## 请求污染
 
 避免状态单例，每个请求都必须是全新的独立的函数调用，在 main.ts 中 createApp 需要写成函数
-
-## TODO
-
-- [x] 引入 pinia
-- [x] 引入 vue-router
-- [ ] koa 处理请求
-- [x] 处理打包生产环境
-- [x] 预加载
 
 ## 页面路由
 
@@ -47,7 +64,7 @@ node 端拿到用户请求，根据路径找到对应页面组件，并且根据
 2. 再生成一个 SSR 构建，使其通过 import 直接加载，这样便无需再使用 Vite 的 ssrLoadModule；
 3. 修改 package.json 构建命令
 
-## 开发模式首屏闪屏
+## 开发模式首屏闪屏原因
 
 由于开发模式和生产构建包对于样式的引入方式不同，生产模式是以vue文件 .vue?vue&type=style&index=0&scoped=b0f1d2fd&lang.css 的文件引入，首屏拿到html先渲染无CSS的网页，引入vue文件时才会引入对应组件的样式重新渲染成最终的样式。
 
