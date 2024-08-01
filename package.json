@@ -9,7 +9,7 @@
     "dev-vite": "vite",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr app/entry-server.ts",
-    "build": "tsc && npm run build:client && npm run build:server",
+    "build": "npm run build:client && npm run build:server && tsc",
     "start": "npm run build && npm run server",
     "preview": "vite preview",
     "eslint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix ",
