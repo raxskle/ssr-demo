@@ -12,3 +12,6 @@ log
 !proto/feedcloudcenter/**/*.ts
 
 .vscode/settings.json
+
+dist
+server-dist
