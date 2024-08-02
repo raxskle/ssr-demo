@@ -1,5 +1,5 @@
 import type { Context } from "koa";
 
-export const request = async (ctx: Context) => {
-  return "index result";
+export const handleRequest = async (ctx: Context) => {
+  ctx.body = "index result";
 };

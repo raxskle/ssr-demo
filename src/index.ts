@@ -1,7 +1,7 @@
 import path from "path";
 import Koa from "koa";
-import Router from "@koa/router";
-import { handleRequest } from "./handle-request.js";
+import Router from "koa-router";
+import { handleRequest } from "./request/index.js";
 import { handleDevSSR } from "./ssr/dev-ssr.js";
 import { handleProdSSR } from "./ssr/prod-ssr.js";
 import koaStatic from "koa-static";

@@ -4,11 +4,12 @@ import type { Context } from "koa";
 import { pageRoutes } from "./page-config.js";
 import { createRequire } from "node:module";
 import { __dirname } from "../index.js";
+import type Router from "koa-router";
 
 const require = createRequire(import.meta.url);
 const manifest = require("../../dist/client/.vite/ssr-manifest.json");
 
-export const handleProdSSR = async (router) => {
+export const handleProdSSR = async (router: Router) => {
   const prodHandler = async (ctx: Context) => {
     try {
       // 1. 获取index.html

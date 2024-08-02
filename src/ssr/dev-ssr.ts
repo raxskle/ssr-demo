@@ -1,12 +1,14 @@
 import fs from "fs";
 import path from "path";
 import type { Context } from "koa";
+import type Koa from "koa";
 import koaConnect from "koa-connect";
 import { createServer as createViteServer } from "vite";
 import { pageRoutes } from "./page-config.js";
 import { __dirname } from "../index.js";
+import type Router from "koa-router";
 
-export const handleDevSSR = async (app, router) => {
+export const handleDevSSR = async (app: Koa, router: Router) => {
   // 创建 vite 服务
   const viteServer = await createViteServer({
     root: process.cwd(),
