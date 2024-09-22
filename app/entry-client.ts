@@ -1,5 +1,5 @@
 import { createApp } from "./main";
-import { createClientRouter } from './router';
+import { createClientRouter } from "./router";
 const { app, pinia } = createApp();
 
 const router = createClientRouter();
@@ -12,5 +12,5 @@ if (window && window.__pinia) {
 }
 
 router.isReady().then(() => {
-    app.mount('#app', true);
+  app.mount("#app", true);
 });
